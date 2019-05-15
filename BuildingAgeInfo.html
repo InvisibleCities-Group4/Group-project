@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Show and hide layers</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<style>
+    #features {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 430px;
+        overflow: auto;
+        background: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        margin-right: 0px;
+        
+    }
+    .info {
+        position: inherit;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        background-color: skyblue;
+        color: white;
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+        border-top: 50%;  
+        
+    }
+    #menu {
+        background: #fff;
+        position: absolute;
+        z-index: 1;
+        top: 13px;
+        right: 430px;
+        border-radius: 3px;
+        width: 100px;
+        border: 1px solid rgba(0,0,0,0.4);
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    #menu a {
+        font-size: 13px;
+        color: #404040;
+        display: block;
+        margin: 0;
+        padding: 0;
+        padding: 10px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0,0,0,0.25);
+        text-align: center;
+    }
+
+    #menu a:last-child {
+        border: none;
+    }
+
+    #menu a:hover {
+        background-color: black;
+        color: #404040;
+    }
+ 
+    #menu a.active {
+        background-color: #3887be;
+        color: #ffffff;
+    }
+ 
+    #menu a.active:hover {
+        background: #3074a4;
+    }
+    pre {
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    }
+</style>
+
+<nav id="menu"></nav>
+<div id="map"></div>
+<pre id='features'>
+<div class='info' id="Before 1800" style="display:none">
+Before 1800
+</div>
+<div class='info' id="1801-1850" style="display:none">
+1801-1850
+</div>
+<div class='info' id="1801-1850" style="display:none">
+1801-1850
+</div>
+<div class='info' id="1851-1914" style="display:none">
+1851-1914
+</div>
+<div class='info' id="1915-1939" style="display:none">
+1915-1939
+</div>
+<div class='info' id="1940-1967" style="display:none">
+1940-1967
+</div>
+<div class='info' id="1968-1975" style="display:none">
+1968-1975
+</div>
+<div class='info' id="1976-1981" style="display:none">
+1976-1981
+</div>
+<div class='info' id="1982-1989" style="display:none">
+1982-1989
+</div>
+<div class='info' id="1990-1999" style="display:none">
+1990-1999
+</div>
+<div class='info' id="2000-2007" style="display:none">
+2000-2007
+</div>
+<div class='info' id="After 2008" style="display:none">
+<img src="globe.png" width="100" height="100">
+<p>After 2008 In 52 BC, the Romans defeated a tribe called the Parisii and established a city they named Lutetia, which probably means “swampy.” Today, that city is Paris—and it’s still swampy in the springtime! Traces of Roman architecture remain visible in Paris: if you look at a map, Rue Saint-Jacques cuts right through the middle of the city and was the main Roman road in and out. But when the Roman Empire crumbled, its architectural genius disappeared as well, and the Dark Ages were actually a step backwards architecturally. During the early Middle Ages, the people of Paris sometimes stole and relocated entire sections of Roman walls to use for their own buildings, because the Roman walls were so much sturdier. During this entire period, the “architect” per se didn’t yet exist, and important Paris buildings were designed and constructed by teams of masons.</p>
+</div>
+</pre>    
+
+<script>
+var year = ['before1800','1801-1850']    
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2djd2FuMTYiLCJhIjoiY2oxeXIxc2ZwMDAwdTMzcnZvNzQ2NHJodyJ9.WTKK8mArsncLhB20v3wzxA';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/sgcwan16/cjt1clhzo0pjj1fp1bh0yqp36',
+    zoom: 11.3,
+    center: [2.411830, 48.856580]
+})
+
+map.on('load', function () {
+    map.addLayer({
+            id:'Before 1800',
+            type:'fill',
+            source: {
+                type: 'vector',
+                url: 'mapbox://sgcwan16.65zb890l'
+            },
+            'source-layer': 'Before1800-8fz6mi',
+            'layout': {
+                'visibility': 'none'
+            },
+            paint:{
+                
+                "fill-color": "#483D8B",
+                "fill-opacity": 1
+            },
+        });
+    map.addLayer({
+            id:'1801-1850',
+            type:'fill',
+            source: {
+                type: 'vector',
+                url: 'mapbox://sgcwan16.4ram7fpp'
+            },
+            'source-layer': '1801-1850-3ey3lj',
+            'layout': {
+                'visibility': 'none'
+            },
+            paint:{
+                
+                "fill-color": "#DC143C",
+                "fill-opacity": 1
+            },
+        });
+    map.addLayer({
+            id:'1851-1914',
+            type:'fill',
+            source: {
+                type: 'vector',
+                url: 'mapbox://sgcwan16.7b6qhy3t'
+            },
+            'source-layer': '1851-reduced01-2zhrjj',
+            'layout': {
+                'visibility': 'none'
+            },
+            paint:{
+                "fill-color": "#6495ED",
+                "fill-opacity": 1
+            },
+        });
+    map.addLayer({
+            id:'1915-1939',
+            type:'fill',
+            source: {
+                type: 'vector',
+                url: 'mapbox://sgcwan16.cisytj50'
+            },
+            'source-layer': '1915-1939-6118v9',
+            'layout': {
+                'visibility': 'none'
+            },
+            paint:{
+                
+                "fill-color": "#ff8050",
+                "fill-opacity": 1
+            },
+        });
+    map.addLayer({
+            id:'1940-1967',
+            type:'fill',
+            source: {
+                type: 'vector',
+                url: 'mapbox://sgcwan16.08b8a6t0'
+            },
+            'source-layer': '1940-1967-6mcne0',
+            'layout': {
+                'visibility': 'none'
+            },
+            paint:{
+                
+                "fill-color": "#ff9631",
+                "fill-opacity": 1
+            },
+        });
+    map.addLayer({
+            id:'1968-1975',
+            type:'fill',
+            source: {
+                type: 'vector',
+                url: 'mapbox://sgcwan16.8klh1mda'
+            },
+            'source-layer': '1968-1975-80vrc2',
+            'layout': {
+                'visibility': 'none'
+            },
+            paint:{
+                
+                "fill-color": "#ffa900",
+                "fill-opacity": 1
+            },
+        });
+    map.addLayer({
+            id:'1976-1981',
+            type:'fill',
+            source: {
+                type: 'vector',
+                url: 'mapbox://sgcwan16.aofzpioq'
+            },
+            'source-layer': '1976-1981-55wo1j',
+            'layout': {
+                'visibility': 'none'
+            },
+            paint:{
+                
+                "fill-color": "#ffbb00",
+                "fill-opacity": 1
+            },
+        });
+    map.addLayer({
+            id:'1982-1989',
+            type:'fill',
+            source: {
+                type: 'vector',
+                url: 'mapbox://sgcwan16.4ura3lew'
+            },
+            'source-layer': '1982-1989-5bheaz',
+            'layout': {
+                'visibility': 'none'
+            },
+            paint:{
+                
+                "fill-color": "#ffcd00",
+                "fill-opacity": 1
+            },
+        });
+    map.addLayer({
+            id:'1990-1999',
+            type:'fill',
+            source: {
+                type: 'vector',
+                url: 'mapbox://sgcwan16.65awbwpj'
+            },
+            'source-layer': '1990-1999-5noopw',
+            'layout': {
+                'visibility': 'none'
+            },
+            paint:{
+                
+                "fill-color": "#ffde00",
+                "fill-opacity": 1
+            },
+        });
+    map.addLayer({
+            id:'2000-2007',
+            type:'fill',
+            source: {
+                type: 'vector',
+                url: 'mapbox://sgcwan16.046pp2so'
+            },
+            'source-layer': '2000-2007-26mw4i',
+            'layout': {
+                'visibility': 'none'
+            },
+            paint:{
+                
+                "fill-color": "#ffee00",
+                "fill-opacity": 1
+            },
+        });
+    map.addLayer({
+            id:'After 2008',
+            type:'fill',
+            source: {
+                type: 'vector',
+                url: 'mapbox://sgcwan16.blfkfnf0'
+            },
+            'source-layer': 'After2008-5sjq0w',
+            'layout': {
+                'visibility': 'none'
+            },
+            paint:{
+                
+                "fill-color": "#ffff00",
+                "fill-opacity": 1
+            },
+        });
+
+
+});
+    
+var toggleableLayerIds = [ 'Before 1800', '1801-1850','1851-1914','1915-1939','1940-1967',
+                         '1968-1975','1976-1981','1982-1989','1990-1999','2000-2007','After 2008'];
+
+for (var i = 0; i < toggleableLayerIds.length; i++) {
+    var id = toggleableLayerIds[i];
+
+    var link = document.createElement('a');
+    link.href = '#';
+    link.className = 'active';
+    link.textContent = id;
+    link.onclick = function (e) {
+        var clickedLayer = this.textContent;
+        var x = document.getElementById(clickedLayer);
+        e.preventDefault();
+        e.stopPropagation();
+
+        var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+
+        if (visibility === 'none') {
+            map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+            this.className = '';
+            x.style.display = "block";
+        } else {
+            this.className = 'active';
+            map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+            x.style.display = "none";
+        }
+        
+        
+    };
+
+    var layers = document.getElementById('menu');
+    layers.appendChild(link);
+    
+}
+
+
+</script>
+</body>
+</html>>
