@@ -1,0 +1,358 @@
+<html><head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<title>Smoothed D3.js Radar Chart</title>
+
+		<!-- Google fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+		<!-- D3.js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+		
+		<style>
+			body {
+				font-family: 'Open Sans', sans-serif;
+				font-size: 11px;
+				font-weight: 300;
+				fill: #242424;
+				text-align: center;
+				text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+				cursor: default;
+			}
+			
+			.legend {
+				font-family: 'Raleway', sans-serif;
+				fill: #333333;
+			}
+			
+			.tooltip {
+				fill: #333333;
+			}
+		</style>
+	
+	</head>
+	<body>
+
+		<div class="radarChart"><svg width="700" height="589" class="radar.radarChart"><g transform="translate(350,294.5)"><defs><filter id="glow"><feGaussianBlur stdDeviation="2.5" result="coloredBlur"></feGaussianBlur><feMerge><feMergeNode in="coloredBlur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter></defs><g class="axisWrapper"><circle class="gridCircle" r="194.5" style="fill: rgb(205, 205, 205); stroke: rgb(205, 205, 205); fill-opacity: 0.1; filter: url(&quot;#glow&quot;);"></circle><circle class="gridCircle" r="155.6" style="fill: rgb(205, 205, 205); stroke: rgb(205, 205, 205); fill-opacity: 0.1; filter: url(&quot;#glow&quot;);"></circle><circle class="gridCircle" r="116.69999999999999" style="fill: rgb(205, 205, 205); stroke: rgb(205, 205, 205); fill-opacity: 0.1; filter: url(&quot;#glow&quot;);"></circle><circle class="gridCircle" r="77.8" style="fill: rgb(205, 205, 205); stroke: rgb(205, 205, 205); fill-opacity: 0.1; filter: url(&quot;#glow&quot;);"></circle><circle class="gridCircle" r="38.9" style="fill: rgb(205, 205, 205); stroke: rgb(205, 205, 205); fill-opacity: 0.1; filter: url(&quot;#glow&quot;);"></circle><text class="axisLabel" x="4" y="-194.5" dy="0.4em" fill="#737373" style="font-size: 10px;">50%</text><text class="axisLabel" x="4" y="-155.6" dy="0.4em" fill="#737373" style="font-size: 10px;">40%</text><text class="axisLabel" x="4" y="-116.7" dy="0.4em" fill="#737373" style="font-size: 10px;">30%</text><text class="axisLabel" x="4" y="-77.8" dy="0.4em" fill="#737373" style="font-size: 10px;">20%</text><text class="axisLabel" x="4" y="-38.9" dy="0.4em" fill="#737373" style="font-size: 10px;">10%</text><g class="axis"><line x1="0" y1="0" x2="1.3100659133878812e-14" y2="-213.95000000000002" class="line" style="stroke: white; stroke-width: 2px;"></line><text class="legend" text-anchor="middle" dy="0.35em" x="1.4887112652135012e-14" y="-243.125" style="font-size: 11px;"><tspan x="1.4887112652135012e-14" y="-243.125" dy="0.35em">Battery Life</tspan></text></g><g class="axis"><line x1="0" y1="0" x2="151.28549583486188" y2="-151.28549583486185" class="line" style="stroke: white; stroke-width: 2px;"></line><text class="legend" text-anchor="middle" dy="0.35em" x="171.91533617597938" y="-171.91533617597935" style="font-size: 11px;"><tspan x="171.91533617597938" y="-171.91533617597935" dy="0.35em">Brand</tspan></text></g><g class="axis"><line x1="0" y1="0" x2="213.95000000000002" y2="0" class="line" style="stroke: white; stroke-width: 2px;"></line><text class="legend" text-anchor="middle" dy="0.35em" x="243.125" y="0" style="font-size: 11px;"><tspan x="243.125" y="0" dy="0.35em">Contract</tspan><tspan x="243.125" y="0" dy="1.75em">Cost</tspan></text></g><g class="axis"><line x1="0" y1="0" x2="151.28549583486188" y2="151.28549583486185" class="line" style="stroke: white; stroke-width: 2px;"></line><text class="legend" text-anchor="middle" dy="0.35em" x="171.91533617597938" y="171.91533617597935" style="font-size: 11px;"><tspan x="171.91533617597938" y="171.91533617597935" dy="0.35em">Design And</tspan><tspan x="171.91533617597938" y="171.91533617597935" dy="1.75em">Quality</tspan></text></g><g class="axis"><line x1="0" y1="0" x2="1.3100659133878812e-14" y2="213.95000000000002" class="line" style="stroke: white; stroke-width: 2px;"></line><text class="legend" text-anchor="middle" dy="0.35em" x="1.4887112652135012e-14" y="243.125" style="font-size: 11px;"><tspan x="1.4887112652135012e-14" y="243.125" dy="0.35em">Have</tspan><tspan x="1.4887112652135012e-14" y="243.125" dy="1.75em">Internet</tspan><tspan x="1.4887112652135012e-14" y="243.125" dy="3.15em">Connectivity</tspan></text></g><g class="axis"><line x1="0" y1="0" x2="-151.28549583486185" y2="151.28549583486188" class="line" style="stroke: white; stroke-width: 2px;"></line><text class="legend" text-anchor="middle" dy="0.35em" x="-171.91533617597935" y="171.91533617597938" style="font-size: 11px;"><tspan x="-171.91533617597935" y="171.91533617597938" dy="0.35em">Large</tspan><tspan x="-171.91533617597935" y="171.91533617597938" dy="1.75em">Screen</tspan></text></g><g class="axis"><line x1="0" y1="0" x2="-213.95000000000002" y2="2.6201318267757624e-14" class="line" style="stroke: white; stroke-width: 2px;"></line><text class="legend" text-anchor="middle" dy="0.35em" x="-243.125" y="2.9774225304270024e-14" style="font-size: 11px;"><tspan x="-243.125" y="2.9774225304270024e-14" dy="0.35em">Price Of</tspan><tspan x="-243.125" y="2.9774225304270024e-14" dy="1.75em">Device</tspan></text></g><g class="axis"><line x1="0" y1="0" x2="-151.28549583486188" y2="-151.28549583486185" class="line" style="stroke: white; stroke-width: 2px;"></line><text class="legend" text-anchor="middle" dy="0.35em" x="-171.9153361759794" y="-171.91533617597935" style="font-size: 11px;"><tspan x="-171.9153361759794" y="-171.91533617597935" dy="0.35em">To Be A</tspan><tspan x="-171.9153361759794" y="-171.91533617597935" dy="1.75em">Smartphone</tspan></text></g></g><g class="radarWrapper"><path class="radarArea" d="M5.240263653551524e-15,-85.58C32.18255093214336,-76.50287024990828,60.096570606838775,-89.85507060683877,77.01807060683878,-77.01807060683876S117.34856487504585,-18.566856307005775,112.80999999999999,0S63.6824714398664,33.923971439866385,46.760971439866395,46.76097143986639S7.839339329624667,91.76895210233526,5.240263653551524e-15,85.58S6.752209242368662,18.33829075763134,-5.501290757631339,5.50129075763134S-61.88535327252717,21.455033954762236,-81.69,1.0004139702234729e-14S-149.78576894078353,-124.69526894078346,-137.53226894078352,-137.53226894078347S-32.18255093214334,-94.65712975009171,5.240263653551524e-15,-85.58" style="fill: rgb(237, 201, 81); fill-opacity: 0.35;"></path><path class="radarStroke" d="M5.240263653551524e-15,-85.58C32.18255093214336,-76.50287024990828,60.096570606838775,-89.85507060683877,77.01807060683878,-77.01807060683876S117.34856487504585,-18.566856307005775,112.80999999999999,0S63.6824714398664,33.923971439866385,46.760971439866395,46.76097143986639S7.839339329624667,91.76895210233526,5.240263653551524e-15,85.58S6.752209242368662,18.33829075763134,-5.501290757631339,5.50129075763134S-61.88535327252717,21.455033954762236,-81.69,1.0004139702234729e-14S-149.78576894078353,-124.69526894078346,-137.53226894078352,-137.53226894078347S-32.18255093214334,-94.65712975009171,5.240263653551524e-15,-85.58" style="stroke-width: 2px; stroke: rgb(237, 201, 81); fill: none; filter: url(&quot;#glow&quot;);"></path><circle class="radarCircle" r="4" cx="5.240263653551524e-15" cy="-85.58" style="fill: rgb(237, 201, 81); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="77.01807060683878" cy="-77.01807060683876" style="fill: rgb(237, 201, 81); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="112.80999999999999" cy="0" style="fill: rgb(237, 201, 81); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="46.760971439866395" cy="46.76097143986639" style="fill: rgb(237, 201, 81); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="5.240263653551524e-15" cy="85.58" style="fill: rgb(237, 201, 81); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="-5.501290757631339" cy="5.50129075763134" style="fill: rgb(237, 201, 81); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="-81.69" cy="1.0004139702234729e-14" style="fill: rgb(237, 201, 81); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="-137.53226894078352" cy="-137.53226894078347" style="fill: rgb(237, 201, 81); fill-opacity: 0.8;"></circle></g><g class="radarWrapper"><path class="radarArea" d="M6.431232665722326e-15,-105.03C22.280227568406936,-95.95287024990829,23.58782606105072,-59.76482606105071,44.01032606105072,-44.01032606105071S137.38779042046704,-11.965307397848163,136.14999999999998,0S56.18088992460371,24.088389924603703,35.75838992460371,35.758389924603705S10.727516977381118,77.80000000000001,4.7638760486832045e-15,77.80000000000001S-15.335889924603705,47.428389924603714,-35.758389924603705,35.75838992460371S-125.83507982944121,21.042437147939893,-136.14999999999998,1.6673566170391212e-14S-124.94702439499547,-88.77002439499543,-104.52452439499547,-104.52452439499544S-22.28022756840692,-114.10712975009172,6.431232665722326e-15,-105.03" style="fill: rgb(204, 51, 63); fill-opacity: 0.35;"></path><path class="radarStroke" d="M6.431232665722326e-15,-105.03C22.280227568406936,-95.95287024990829,23.58782606105072,-59.76482606105071,44.01032606105072,-44.01032606105071S137.38779042046704,-11.965307397848163,136.14999999999998,0S56.18088992460371,24.088389924603703,35.75838992460371,35.758389924603705S10.727516977381118,77.80000000000001,4.7638760486832045e-15,77.80000000000001S-15.335889924603705,47.428389924603714,-35.758389924603705,35.75838992460371S-125.83507982944121,21.042437147939893,-136.14999999999998,1.6673566170391212e-14S-124.94702439499547,-88.77002439499543,-104.52452439499547,-104.52452439499544S-22.28022756840692,-114.10712975009172,6.431232665722326e-15,-105.03" style="stroke-width: 2px; stroke: rgb(204, 51, 63); fill: none; filter: url(&quot;#glow&quot;);"></path><circle class="radarCircle" r="4" cx="6.431232665722326e-15" cy="-105.03" style="fill: rgb(204, 51, 63); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="44.01032606105072" cy="-44.01032606105071" style="fill: rgb(204, 51, 63); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="136.14999999999998" cy="0" style="fill: rgb(204, 51, 63); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="35.75838992460371" cy="35.758389924603705" style="fill: rgb(204, 51, 63); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="4.7638760486832045e-15" cy="77.80000000000001" style="fill: rgb(204, 51, 63); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="-35.758389924603705" cy="35.75838992460371" style="fill: rgb(204, 51, 63); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="-136.14999999999998" cy="1.6673566170391212e-14" style="fill: rgb(204, 51, 63); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="-104.52452439499547" cy="-104.52452439499544" style="fill: rgb(204, 51, 63); fill-opacity: 0.8;"></circle></g><g class="radarWrapper"><path class="radarArea" d="M6.193038863288165e-15,-101.14C16.50387227289403,-92.88806386355299,10.001453788156702,-42.677453788156704,27.506453788156705,-27.5064537881567S115.04961277271059,-9.902323363736414,116.69999999999999,0S56.01403530341939,25.672035303419378,38.50903530341939,38.50903530341938S7.426742522802316,89.7059680682235,5.240263653551524e-15,85.58S12.920918484737323,23.83958151526268,-11.002581515262678,11.00258151526268S-148.76248302261888,14.028291431959936,-159.48999999999998,1.9531891799601133e-14S-106.4428613644701,-67.34836136447008,-82.5193613644701,-82.51936136447009S-16.503872272894014,-109.39193613644701,6.193038863288165e-15,-101.14" style="fill: rgb(0, 160, 176); fill-opacity: 0.35;"></path><path class="radarStroke" d="M6.193038863288165e-15,-101.14C16.50387227289403,-92.88806386355299,10.001453788156702,-42.677453788156704,27.506453788156705,-27.5064537881567S115.04961277271059,-9.902323363736414,116.69999999999999,0S56.01403530341939,25.672035303419378,38.50903530341939,38.50903530341938S7.426742522802316,89.7059680682235,5.240263653551524e-15,85.58S12.920918484737323,23.83958151526268,-11.002581515262678,11.00258151526268S-148.76248302261888,14.028291431959936,-159.48999999999998,1.9531891799601133e-14S-106.4428613644701,-67.34836136447008,-82.5193613644701,-82.51936136447009S-16.503872272894014,-109.39193613644701,6.193038863288165e-15,-101.14" style="stroke-width: 2px; stroke: rgb(0, 160, 176); fill: none; filter: url(&quot;#glow&quot;);"></path><circle class="radarCircle" r="4" cx="6.193038863288165e-15" cy="-101.14" style="fill: rgb(0, 160, 176); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="27.506453788156705" cy="-27.5064537881567" style="fill: rgb(0, 160, 176); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="116.69999999999999" cy="0" style="fill: rgb(0, 160, 176); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="38.50903530341939" cy="38.50903530341938" style="fill: rgb(0, 160, 176); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="5.240263653551524e-15" cy="85.58" style="fill: rgb(0, 160, 176); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="-11.002581515262678" cy="11.00258151526268" style="fill: rgb(0, 160, 176); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="-159.48999999999998" cy="1.9531891799601133e-14" style="fill: rgb(0, 160, 176); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="-82.5193613644701" cy="-82.51936136447009" style="fill: rgb(0, 160, 176); fill-opacity: 0.8;"></circle></g><g class="radarCircleWrapper"><circle class="radarInvisibleCircle" r="6" cx="5.240263653551524e-15" cy="-85.58" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="77.01807060683878" cy="-77.01807060683876" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="112.80999999999999" cy="0" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="46.760971439866395" cy="46.76097143986639" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="5.240263653551524e-15" cy="85.58" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="-5.501290757631339" cy="5.50129075763134" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="-81.69" cy="1.0004139702234729e-14" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="-137.53226894078352" cy="-137.53226894078347" style="fill: none; pointer-events: all;"></circle></g><g class="radarCircleWrapper"><circle class="radarInvisibleCircle" r="6" cx="6.431232665722326e-15" cy="-105.03" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="44.01032606105072" cy="-44.01032606105071" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="136.14999999999998" cy="0" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="35.75838992460371" cy="35.758389924603705" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="4.7638760486832045e-15" cy="77.80000000000001" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="-35.758389924603705" cy="35.75838992460371" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="-136.14999999999998" cy="1.6673566170391212e-14" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="-104.52452439499547" cy="-104.52452439499544" style="fill: none; pointer-events: all;"></circle></g><g class="radarCircleWrapper"><circle class="radarInvisibleCircle" r="6" cx="6.193038863288165e-15" cy="-101.14" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="27.506453788156705" cy="-27.5064537881567" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="116.69999999999999" cy="0" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="38.50903530341939" cy="38.50903530341938" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="5.240263653551524e-15" cy="85.58" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="-11.002581515262678" cy="11.00258151526268" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="-159.48999999999998" cy="1.9531891799601133e-14" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="-82.5193613644701" cy="-82.51936136447009" style="fill: none; pointer-events: all;"></circle></g><text class="tooltip" style="opacity: 0;"></text></g></svg></div>
+
+		<script>
+            /////////////////////////////////////////////////////////
+/////////////// The Radar Chart Function ////////////////
+/////////////// Written by Nadieh Bremer ////////////////
+////////////////// VisualCinnamon.com ///////////////////
+/////////// Inspired by the code of alangrafu ///////////
+/////////////////////////////////////////////////////////
+	
+function RadarChart(id, data, options) {
+	var cfg = {
+	 w: 600,				//Width of the circle
+	 h: 600,				//Height of the circle
+	 margin: {top: 20, right: 20, bottom: 20, left: 20}, //The margins of the SVG
+	 levels: 3,				//How many levels or inner circles should there be drawn
+	 maxValue: 0, 			//What is the value that the biggest circle will represent
+	 labelFactor: 1.25, 	//How much farther than the radius of the outer circle should the labels be placed
+	 wrapWidth: 60, 		//The number of pixels after which a label needs to be given a new line
+	 opacityArea: 0.35, 	//The opacity of the area of the blob
+	 dotRadius: 4, 			//The size of the colored circles of each blog
+	 opacityCircles: 0.1, 	//The opacity of the circles of each blob
+	 strokeWidth: 2, 		//The width of the stroke around each blob
+	 roundStrokes: false,	//If true the area and stroke will follow a round path (cardinal-closed)
+	 color: d3.scale.category10()	//Color function
+	};
+	
+	//Put all of the options into a variable called cfg
+	if('undefined' !== typeof options){
+	  for(var i in options){
+		if('undefined' !== typeof options[i]){ cfg[i] = options[i]; }
+	  }//for i
+	}//if
+	
+	//If the supplied maxValue is smaller than the actual one, replace by the max in the data
+	var maxValue = Math.max(cfg.maxValue, d3.max(data, function(i){return d3.max(i.map(function(o){return o.value;}))}));
+		
+	var allAxis = (data[0].map(function(i, j){return i.axis})),	//Names of each axis
+		total = allAxis.length,					//The number of different axes
+		radius = Math.min(cfg.w/2, cfg.h/2), 	//Radius of the outermost circle
+		Format = d3.format('%'),			 	//Percentage formatting
+		angleSlice = Math.PI * 2 / total;		//The width in radians of each "slice"
+	
+	//Scale for the radius
+	var rScale = d3.scale.linear()
+		.range([0, radius])
+		.domain([0, maxValue]);
+		
+	/////////////////////////////////////////////////////////
+	//////////// Create the container SVG and g /////////////
+	/////////////////////////////////////////////////////////
+
+	//Remove whatever chart with the same id/class was present before
+	d3.select(id).select("svg").remove();
+	
+	//Initiate the radar chart SVG
+	var svg = d3.select(id).append("svg")
+			.attr("width",  cfg.w + cfg.margin.left + cfg.margin.right)
+			.attr("height", cfg.h + cfg.margin.top + cfg.margin.bottom)
+			.attr("class", "radar"+id);
+	//Append a g element		
+	var g = svg.append("g")
+			.attr("transform", "translate(" + (cfg.w/2 + cfg.margin.left) + "," + (cfg.h/2 + cfg.margin.top) + ")");
+	
+	/////////////////////////////////////////////////////////
+	////////// Glow filter for some extra pizzazz ///////////
+	/////////////////////////////////////////////////////////
+	
+	//Filter for the outside glow
+	var filter = g.append('defs').append('filter').attr('id','glow'),
+		feGaussianBlur = filter.append('feGaussianBlur').attr('stdDeviation','2.5').attr('result','coloredBlur'),
+		feMerge = filter.append('feMerge'),
+		feMergeNode_1 = feMerge.append('feMergeNode').attr('in','coloredBlur'),
+		feMergeNode_2 = feMerge.append('feMergeNode').attr('in','SourceGraphic');
+
+	/////////////////////////////////////////////////////////
+	/////////////// Draw the Circular grid //////////////////
+	/////////////////////////////////////////////////////////
+	
+	//Wrapper for the grid & axes
+	var axisGrid = g.append("g").attr("class", "axisWrapper");
+	
+	//Draw the background circles
+	axisGrid.selectAll(".levels")
+	   .data(d3.range(1,(cfg.levels+1)).reverse())
+	   .enter()
+		.append("circle")
+		.attr("class", "gridCircle")
+		.attr("r", function(d, i){return radius/cfg.levels*d;})
+		.style("fill", "#CDCDCD")
+		.style("stroke", "#CDCDCD")
+		.style("fill-opacity", cfg.opacityCircles)
+		.style("filter" , "url(#glow)");
+
+	//Text indicating at what % each level is
+	axisGrid.selectAll(".axisLabel")
+	   .data(d3.range(1,(cfg.levels+1)).reverse())
+	   .enter().append("text")
+	   .attr("class", "axisLabel")
+	   .attr("x", 4)
+	   .attr("y", function(d){return -d*radius/cfg.levels;})
+	   .attr("dy", "0.4em")
+	   .style("font-size", "10px")
+	   .attr("fill", "#737373")
+	   .text(function(d,i) { return Format(maxValue * d/cfg.levels); });
+
+	/////////////////////////////////////////////////////////
+	//////////////////// Draw the axes //////////////////////
+	/////////////////////////////////////////////////////////
+	
+	//Create the straight lines radiating outward from the center
+	var axis = axisGrid.selectAll(".axis")
+		.data(allAxis)
+		.enter()
+		.append("g")
+		.attr("class", "axis");
+	//Append the lines
+	axis.append("line")
+		.attr("x1", 0)
+		.attr("y1", 0)
+		.attr("x2", function(d, i){ return rScale(maxValue*1.1) * Math.cos(angleSlice*i - Math.PI/2); })
+		.attr("y2", function(d, i){ return rScale(maxValue*1.1) * Math.sin(angleSlice*i - Math.PI/2); })
+		.attr("class", "line")
+		.style("stroke", "white")
+		.style("stroke-width", "2px");
+
+	//Append the labels at each axis
+	axis.append("text")
+		.attr("class", "legend")
+		.style("font-size", "11px")
+		.attr("text-anchor", "middle")
+		.attr("dy", "0.35em")
+		.attr("x", function(d, i){ return rScale(maxValue * cfg.labelFactor) * Math.cos(angleSlice*i - Math.PI/2); })
+		.attr("y", function(d, i){ return rScale(maxValue * cfg.labelFactor) * Math.sin(angleSlice*i - Math.PI/2); })
+		.text(function(d){return d})
+		.call(wrap, cfg.wrapWidth);
+
+	/////////////////////////////////////////////////////////
+	///////////// Draw the radar chart blobs ////////////////
+	/////////////////////////////////////////////////////////
+	
+	//The radial line function
+	var radarLine = d3.svg.line.radial()
+		.interpolate("linear-closed")
+		.radius(function(d) { return rScale(d.value); })
+		.angle(function(d,i) {	return i*angleSlice; });
+		
+	if(cfg.roundStrokes) {
+		radarLine.interpolate("cardinal-closed");
+	}
+				
+	//Create a wrapper for the blobs	
+	var blobWrapper = g.selectAll(".radarWrapper")
+		.data(data)
+		.enter().append("g")
+		.attr("class", "radarWrapper");
+			
+	//Append the backgrounds	
+	blobWrapper
+		.append("path")
+		.attr("class", "radarArea")
+		.attr("d", function(d,i) { return radarLine(d); })
+		.style("fill", function(d,i) { return cfg.color(i); })
+		.style("fill-opacity", cfg.opacityArea)
+		.on('mouseover', function (d,i){
+			//Dim all blobs
+			d3.selectAll(".radarArea")
+				.transition().duration(200)
+				.style("fill-opacity", 0.1); 
+			//Bring back the hovered over blob
+			d3.select(this)
+				.transition().duration(200)
+				.style("fill-opacity", 0.7);	
+		})
+		.on('mouseout', function(){
+			//Bring back all blobs
+			d3.selectAll(".radarArea")
+				.transition().duration(200)
+				.style("fill-opacity", cfg.opacityArea);
+		});
+		
+	//Create the outlines	
+	blobWrapper.append("path")
+		.attr("class", "radarStroke")
+		.attr("d", function(d,i) { return radarLine(d); })
+		.style("stroke-width", cfg.strokeWidth + "px")
+		.style("stroke", function(d,i) { return cfg.color(i); })
+		.style("fill", "none")
+		.style("filter" , "url(#glow)");		
+	
+	//Append the circles
+	blobWrapper.selectAll(".radarCircle")
+		.data(function(d,i) { return d; })
+		.enter().append("circle")
+		.attr("class", "radarCircle")
+		.attr("r", cfg.dotRadius)
+		.attr("cx", function(d,i){ return rScale(d.value) * Math.cos(angleSlice*i - Math.PI/2); })
+		.attr("cy", function(d,i){ return rScale(d.value) * Math.sin(angleSlice*i - Math.PI/2); })
+		.style("fill", function(d,i,j) { return cfg.color(j); })
+		.style("fill-opacity", 0.8);
+
+	/////////////////////////////////////////////////////////
+	//////// Append invisible circles for tooltip ///////////
+	/////////////////////////////////////////////////////////
+	
+	//Wrapper for the invisible circles on top
+	var blobCircleWrapper = g.selectAll(".radarCircleWrapper")
+		.data(data)
+		.enter().append("g")
+		.attr("class", "radarCircleWrapper");
+		
+	//Append a set of invisible circles on top for the mouseover pop-up
+	blobCircleWrapper.selectAll(".radarInvisibleCircle")
+		.data(function(d,i) { return d; })
+		.enter().append("circle")
+		.attr("class", "radarInvisibleCircle")
+		.attr("r", cfg.dotRadius*1.5)
+		.attr("cx", function(d,i){ return rScale(d.value) * Math.cos(angleSlice*i - Math.PI/2); })
+		.attr("cy", function(d,i){ return rScale(d.value) * Math.sin(angleSlice*i - Math.PI/2); })
+		.style("fill", "none")
+		.style("pointer-events", "all")
+		.on("mouseover", function(d,i) {
+			newX =  parseFloat(d3.select(this).attr('cx')) - 10;
+			newY =  parseFloat(d3.select(this).attr('cy')) - 10;
+					
+			tooltip
+				.attr('x', newX)
+				.attr('y', newY)
+				.text(Format(d.value))
+				.transition().duration(200)
+				.style('opacity', 1);
+		})
+		.on("mouseout", function(){
+			tooltip.transition().duration(200)
+				.style("opacity", 0);
+		});
+		
+	//Set up the small tooltip for when you hover over a circle
+	var tooltip = g.append("text")
+		.attr("class", "tooltip")
+		.style("opacity", 0);
+	
+	/////////////////////////////////////////////////////////
+	/////////////////// Helper Function /////////////////////
+	/////////////////////////////////////////////////////////
+
+	//Taken from http://bl.ocks.org/mbostock/7555321
+	//Wraps SVG text	
+	function wrap(text, width) {
+	  text.each(function() {
+		var text = d3.select(this),
+			words = text.text().split(/\s+/).reverse(),
+			word,
+			line = [],
+			lineNumber = 0,
+			lineHeight = 1.4, // ems
+			y = text.attr("y"),
+			x = text.attr("x"),
+			dy = parseFloat(text.attr("dy")),
+			tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
+			
+		while (word = words.pop()) {
+		  line.push(word);
+		  tspan.text(line.join(" "));
+		  if (tspan.node().getComputedTextLength() > width) {
+			line.pop();
+			tspan.text(line.join(" "));
+			line = [word];
+			tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+		  }
+		}
+	  });
+	}}
+        </script>	
+		<script>
+      
+      /* Radar chart design created by Nadieh Bremer - VisualCinnamon.com */
+      
+			////////////////////////////////////////////////////////////// 
+			//////////////////////// Set-Up ////////////////////////////// 
+			////////////////////////////////////////////////////////////// 
+
+			var margin = {top: 100, right: 100, bottom: 100, left: 100},
+				width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
+				height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
+					
+			////////////////////////////////////////////////////////////// 
+			////////////////////////// Data ////////////////////////////// 
+			////////////////////////////////////////////////////////////// 
+
+			var data = [
+					  [//ARR1 
+						{axis:"Before 1800",value:0.45},
+						{axis:"1801-1850",value:0.20},
+						{axis:"1851-1914",value:0.29},
+						{axis:"1915-1939",value:0.02},
+						{axis:"1940-1999",value:0.04},
+						{axis:"After 2000",value:0.01},
+									
+					  ],
+					];
+			////////////////////////////////////////////////////////////// 
+			//////////////////// Draw the Chart ////////////////////////// 
+			////////////////////////////////////////////////////////////// 
+
+			var color = d3.scale.ordinal()
+				.range(["#00A0B0","#EDC951","#CC333F","#00A0B0","#FFF0F5","#DC143C","#87CEEB","#ff8050","#ffffe0","#ff9631","#ffa900","#ffbb00",
+,"#ffee00","#ffff00"]);
+				
+			var radarChartOptions = {
+			  w: width,
+			  h: height,
+			  margin: margin,
+			  maxValue: 0.7,
+			  levels: 5,
+			  roundStrokes: true,
+			  color: color
+			};
+			//Call function to draw the Radar chart
+			RadarChart(".radarChart", data, radarChartOptions);
+		</script>
+	
+</body></html>
